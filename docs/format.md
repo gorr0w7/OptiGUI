@@ -393,7 +393,12 @@ Supports the following additional selectors: [common selectors](#common-selector
 
 **Optional**{.chip-lightblue}
 **OptiGUI 2.1.0-beta.1+**{.chip-darkgreen}
-**Minecraft 1.19+**{.chip-lightgreen}
+**Minecraft 1.19-1.21.1**{.chip-lightgreen}
+**Removed in Minecraft 1.21.2**{.chip-red}
+
+!!! warning
+    Entity `minecraft:chest_boat` was split in [snapshot 24w39a](https://minecraft.wiki/w/Java_Edition_24w39a#Non-mob_entities). Use the new entity IDs instead of this selector.
+    Use [conditional loading](conditional.md#ifmods) to support multiple versions of the game.
 
 A [list](syntax.html#lists) of [strings](syntax.html#strings) specifying the wood type of the chest boat. Possible values:
 
