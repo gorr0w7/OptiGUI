@@ -8,18 +8,13 @@ import net.fabricmc.fabric.api.event.player.UseItemCallback
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.gui.screen.ingame.AbstractInventoryScreen
-import net.minecraft.client.gui.screen.ingame.BookEditScreen
-import net.minecraft.client.gui.screen.ingame.BookScreen
-import net.minecraft.client.gui.screen.ingame.HangingSignEditScreen
+import net.minecraft.client.gui.screen.ingame.*
 import net.minecraft.entity.Entity
 import net.minecraft.entity.player.PlayerEntity
-import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.util.ActionResult
 import net.minecraft.util.Hand
 import net.minecraft.util.Identifier
-import net.minecraft.util.TypedActionResult
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.hit.EntityHitResult
 import net.minecraft.world.World
@@ -74,17 +69,15 @@ internal object InteractionHandler : ClientModInitializer, UseBlockCallback, Use
         return ActionResult.PASS
     }
 
-    override fun interact(player: PlayerEntity, world: World, hand: Hand): TypedActionResult<ItemStack> {
+    override fun interact(player: PlayerEntity, world: World, hand: Hand): ActionResult {
+        if (!world.isClient) return ActionResult.PASS
+
         val stack = player.getStackInHand(hand)
-        val result = TypedActionResult.pass(stack)
-
-        if (!world.isClient) return result
-
         if (stack.isOf(Items.WRITABLE_BOOK) || stack.isOf(Items.WRITTEN_BOOK)) {
             Interaction.prepare(stack.item.identifier, player, world, Hand.MAIN_HAND, null, BookExtraProperties(0, 0))
             // BookExtraProperties will be updated later
         }
-        return result
+        return ActionResult.PASS
     }
 
     override fun onBeforeBegin(screen: Screen) {
@@ -110,7 +103,8 @@ internal object InteractionHandler : ClientModInitializer, UseBlockCallback, Use
     @JvmStatic
     fun interact(player: PlayerEntity, world: World, currentScreen: Screen) {
         val container = when (currentScreen) {
-            is AbstractInventoryScreen<*> -> Identifier.ofVanilla("player")
+            is InventoryScreen -> Identifier.ofVanilla("player")
+            is CreativeInventoryScreen -> Identifier.ofVanilla("player")
             is HangingSignEditScreen -> world.getBlockState(currentScreen.blockEntity.pos).block.identifier
             else -> return
         }
