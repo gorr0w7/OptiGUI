@@ -7,7 +7,6 @@ import net.minecraft.resource.ResourceManager
 import net.minecraft.resource.ResourceReloader
 import net.minecraft.resource.ResourceType
 import net.minecraft.util.Identifier
-import net.minecraft.util.profiler.Profiler
 import opekope2.optigui.filter.ConjunctionFilter
 import opekope2.optigui.filter.IFilter
 import opekope2.optigui.filter.PostProcessorFilter
@@ -34,8 +33,6 @@ internal object FilterLoader : IdentifiableResourceReloadListener, ClientModInit
     override fun reload(
         synchronizer: ResourceReloader.Synchronizer,
         manager: ResourceManager,
-        prepareProfiler: Profiler,
-        applyProfiler: Profiler,
         prepareExecutor: Executor,
         applyExecutor: Executor
     ): CompletableFuture<Void> {
