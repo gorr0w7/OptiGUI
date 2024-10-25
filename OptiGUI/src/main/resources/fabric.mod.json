@@ -147,6 +147,8 @@
       "minecraft:mangrove_wall_hanging_sign": "minecraft:textures/gui/hanging_signs/mangrove.png",
       "minecraft:oak_hanging_sign": "minecraft:textures/gui/hanging_signs/oak.png",
       "minecraft:oak_wall_hanging_sign": "minecraft:textures/gui/hanging_signs/oak.png",
+      "minecraft:pale_oak_hanging_sign": "minecraft:textures/gui/hanging_signs/pale_oak.png",
+      "minecraft:pale_oak_wall_hanging_sign": "minecraft:textures/gui/hanging_signs/pale_oak.png",
       "minecraft:spruce_hanging_sign": "minecraft:textures/gui/hanging_signs/spruce.png",
       "minecraft:spruce_wall_hanging_sign": "minecraft:textures/gui/hanging_signs/spruce.png",
       "minecraft:warped_hanging_sign": "minecraft:textures/gui/hanging_signs/warped.png",
