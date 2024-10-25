@@ -14,8 +14,6 @@ internal fun registerSelectors() {
 
     SelectorRegistry.register("chest.large", LargeChestSelector())
 
-    SelectorRegistry.register("chest_boat.variants", ChestBoatVariantSelector())
-
     SelectorRegistry.register("comparator.output", RedstoneComparatorOutputSelector())
 
     SelectorRegistry.register("date", DateSelector())
