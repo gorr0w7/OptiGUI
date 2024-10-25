@@ -1,11 +1,11 @@
 [versions]
 java = "21" # Don't forget to update *.mixins.json
 kotlin = "2.0.0"
-optigui = "2.3.0-beta.6+1.21"
-minecraft = "1.21"
-yarn = "1.21+build.2"
-fabric-loom = "1.6-SNAPSHOT"
-fabric-loader = "0.15.11"
+optigui = "2.3.0-beta.6+1.21.2"
+minecraft = "1.21.2"
+yarn = "1.21.2+build.1"
+fabric-loom = "1.8-SNAPSHOT"
+fabric-loader = "0.16.7"
 fabric-language-kotlin = "1.11.0+kotlin.2.0.0"
 commons-text = "1.12.0"
 ini4j = "0.5.4"
