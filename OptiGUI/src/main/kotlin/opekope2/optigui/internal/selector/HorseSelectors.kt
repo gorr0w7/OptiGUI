@@ -1,6 +1,8 @@
 package opekope2.optigui.internal.selector
 
+import net.minecraft.block.DyedCarpetBlock
 import net.minecraft.entity.passive.*
+import net.minecraft.item.BlockItem
 import net.minecraft.util.DyeColor
 import opekope2.optigui.filter.ContainingFilter
 import opekope2.optigui.filter.EqualityFilter
@@ -85,7 +87,7 @@ internal class LlamaCarpetColorSelector : AbstractListSelector<DyeColor>() {
     )
 
     private fun getLlamaCarpetColor(interaction: Interaction) =
-        (interaction.data.entityOrRiddenEntity as? LlamaEntity)?.carpetColor
+        (((interaction.data.entityOrRiddenEntity as? LlamaEntity)?.bodyArmor?.item as? BlockItem)?.block as? DyedCarpetBlock)?.dyeColor
 
     override fun transformInteraction(interaction: Interaction) = getLlamaCarpetColor(interaction)?.getName()
 }
