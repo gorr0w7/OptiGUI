@@ -8,8 +8,8 @@
   "client": [
     "BookEditScreenMixin",
     "BookScreenMixin",
+    "DrawContextMixin",
     "MinecraftClientMixin",
-    "RenderSystemMixin",
     "ScreenMixin"
   ]
 }
